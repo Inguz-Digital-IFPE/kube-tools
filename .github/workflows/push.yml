@@ -25,10 +25,7 @@ jobs:
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
-      env:
-        ECR_REGISTRY: public.ecr.aws/c7b7m1b1/kube-tools
-        REPO: kube-tools
       run: |
         echo "Building Pip image"
-        docker build -t $ECR_REGISTRY/$REPO:v1 -f Dockerfile .
-        docker push $ECR_REGISTRY/$REPO:v1
+        docker build -t public.ecr.aws/c7b7m1b1/kube-tools:v1 -f Dockerfile .
+        docker push public.ecr.aws/c7b7m1b1/kube-tools:v1
