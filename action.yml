@@ -22,7 +22,7 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'docker://906062568112.dkr.ecr.us-east-2.amazonaws.com/kube-tools:v1'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.command }}
     - ${{ inputs.kubectl }}
