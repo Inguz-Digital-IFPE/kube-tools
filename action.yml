@@ -1,0 +1,24 @@
+name: 'Kubernetes toolset'
+description: 'Github Action with Kubernetes tools: kubectl, helm, jq, awscli'
+author: 'Stefan Prodan'
+branding:
+  icon: 'command'
+  color: 'blue'
+inputs:
+  command:
+    description: 'command to run'
+    required: true
+  kubectl:
+    description: 'kubectl version'
+  helm:
+    description: 'helm version'
+  awscli:
+    description: 'awscli version'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}
+    - ${{ inputs.kubectl }}
+    - ${{ inputs.helm }}
+    - ${{ inputs.awscli }}
