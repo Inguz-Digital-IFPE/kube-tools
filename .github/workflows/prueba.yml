@@ -22,7 +22,7 @@ jobs:
 
 
       - name: Run Kubernetes tools
-        uses: 906062568112.dkr.ecr.us-east-2.amazonaws.com/kube-tools@v1
+        uses: 906062568112.dkr.ecr.us-east-2.amazonaws.com/kube-tools:v1
         with:
           kubectl: 1.18.4
           helm: 3.3.0
