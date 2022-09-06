@@ -29,8 +29,9 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ALIAS: c7b7m1b1
         REPO: kube-tools
       run: |
         echo "Building Image"
-        docker build -t $ECR_REGISTRY/$REPO:v1 -f Dockerfile .
-        docker push $ECR_REGISTRY/$REPO:v1
+        docker build -t $ECR_REGISTRY/$ALIAS/$REPO:v1 -f Dockerfile .
+        docker push $ECR_REGISTRY/$ALIAS/$REPO:v1
