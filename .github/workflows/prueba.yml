@@ -22,7 +22,7 @@ jobs:
 
 
       - name: Run Kubernetes tools
-        uses: Inguz-Digital-IFPE/kube-tools:v1
+        uses: Inguz-Digital-IFPE/kube-tools@v1
         with:
           kubectl: 1.18.4
           helm: 3.3.0
