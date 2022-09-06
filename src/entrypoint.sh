@@ -20,7 +20,7 @@ if [[ "${AWSCLI}" != "" ]]; then
   apt install -y zip
   curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWSCLI}.zip -o "awscliv2.zip"
   unzip awscliv2.zip
-  ./aws/install
+  ./aws/install --update
 fi
 
 DOCTL_VER=$5
