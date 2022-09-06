@@ -3,8 +3,8 @@ name: Push to Amazon ECR
 on:
   push:
     branches:
-    - mastermerge
-    - v1
+      - "mastermerge"
+      - "v1"
 
 jobs:
   push-container:
