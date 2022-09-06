@@ -23,6 +23,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        REPO: kube-tools
       run: |
         echo "Building Pip image"
         docker build -t $ECR_REGISTRY/$REPO:v1 -f Dockerfile .
