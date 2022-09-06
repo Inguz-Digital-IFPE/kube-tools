@@ -20,7 +20,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-
       - name: Run Kubernetes tools
         uses: Inguz-Digital-IFPE/kube-tools@v1
         with:
