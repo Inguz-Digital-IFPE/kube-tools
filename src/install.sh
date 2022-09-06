@@ -7,7 +7,14 @@ apt update
 apt install -y zip
 apt install -y curl
 
-AWSCLI=2.0.30
+DOCTL_VER=1.56.0
+echo "downloading doctl ${DOCTL_VER}"
+cd ~
+curl -sL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VER}/doctl-${DOCTL_VER}-linux-amd64.tar.gz | tar -xzv
+mv ~/doctl /usr/local/bin
+chmod +x /usr/local/bin/doctl
+
+AWSCLI=2.4.0
 echo "downloading awscli ${KUBECTL}"
 curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWSCLI}.zip -o "awscliv2.zip"
 unzip awscliv2.zip

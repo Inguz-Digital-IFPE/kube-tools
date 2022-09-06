@@ -23,6 +23,14 @@ if [[ "${AWSCLI}" != "" ]]; then
   ./aws/install
 fi
 
+DOCTL_VER=$5
+if [[ "${DOCTL_VER}" != "" ]]; then
+  cd ~
+  curl -sL https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VER}/doctl-${DOCTL_VER}-linux-amd64.tar.gz | tar -xzv
+  mv ~/doctl /usr/local/bin
+  chmod +x /usr/local/bin/doctl
+fi
+
 echo ">>> Executing command <<<"
 echo ""
 echo ""

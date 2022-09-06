@@ -36,3 +36,28 @@ jobs:
             echo "Configure Kubernetes"
             aws eks update-kubeconfig --name cluster-eksctl
 ```
+GitHub Workflow example for doctl:
+
+```yaml
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Kubernetes tools
+        uses: inguz/kube-tools@v1
+        with:
+          TOKEN: ${{secrets.OCEAN_TOKEN}}
+          kubectl: 1.18.4
+          helm: 3.3.0
+          doctl: 1.56.0
+          command: |
+            echo "Run conftest"
+            echo "Login doctl"
+            doctl auth init -t $TOKEN
+            echo "Configure kubectl"
+            doctl kubernetes cluster kubeconfig save use_your_cluster_name
+```

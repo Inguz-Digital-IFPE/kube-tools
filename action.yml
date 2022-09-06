@@ -1,5 +1,5 @@
 name: 'Kubernetes toolset'
-description: 'Github Action with Kubernetes tools: kubectl, helm, jq, awscli'
+description: 'Github Action with Kubernetes tools: kubectl, helm, jq, awscli, doctl'
 author: 'Stefan Prodan'
 branding:
   icon: 'command'
@@ -10,15 +10,22 @@ inputs:
     required: true
   kubectl:
     description: 'kubectl version'
+    required: false
   helm:
     description: 'helm version'
+    required: false
   awscli:
     description: 'awscli version'
+    required: false
+  doctl:
+    description: 'doctl version'
+    required: false
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://906062568112.dkr.ecr.us-east-2.amazonaws.com/kube-tools:v1'
   args:
     - ${{ inputs.command }}
     - ${{ inputs.kubectl }}
     - ${{ inputs.helm }}
     - ${{ inputs.awscli }}
+    - ${{ inputs.doctl }}
