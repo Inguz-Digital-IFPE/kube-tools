@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [pull_request]
 
 jobs:
   test-action:
@@ -18,8 +18,10 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
 
-      - uses: ${{ steps.login-ecr.outputs.registry }}/kube-tools@v1
-        name: Run Kubernetes tools
+      - name: Run Kubernetes tools
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        uses: $ECR_REGISTRY/kube-tools@v1
         with:
           kubectl: 1.18.4
           helm: 3.3.0
