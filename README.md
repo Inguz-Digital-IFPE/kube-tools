@@ -61,4 +61,3 @@ jobs:
             echo "Configure kubectl"
             doctl kubernetes cluster kubeconfig save use_your_cluster_name
 ```
-*This line is a test for datadog...
